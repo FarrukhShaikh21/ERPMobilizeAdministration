@@ -10,7 +10,7 @@
   <DesignTime>
     <Attr Name="_jprName" Value="../../../ERPSolAMSModel.jpr"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
-    <Attr Name="_NamedConnection" Value="ERPSolAMSConn"/>
+    <Attr Name="_NamedConnection" Value="ERPMobAMSConn"/>
     <Attr Name="_appModuleNames0" Value="erpsolams.erpsolamsmodel.erpsolamsam.ERPSolAMSAppModule"/>
   </DesignTime>
   <Containee
