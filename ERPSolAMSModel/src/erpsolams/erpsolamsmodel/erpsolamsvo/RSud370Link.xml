@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RSud370Link"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolams.erpsolamsmodel.erpsolamseo.RSud370Assoc">
+  <ViewLinkDefEnd
+    Name="SysProgramView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolams.erpsolamsmodel.erpsolamsvo.SysProgramView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysProgramView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysProgramView.Moduleid"/>
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysProgramView.Levelid"/>
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysProgramView.Projectid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SysUsersDetailView"
+    Cardinality="-1"
+    Owner="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersDetailView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysUsersDetailView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersDetailView.Moduleid"/>
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersDetailView.Levelid"/>
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersDetailView.Projectid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

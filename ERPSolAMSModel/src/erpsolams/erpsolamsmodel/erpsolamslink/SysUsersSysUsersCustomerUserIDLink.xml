@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUsersSysUsersCustomerUserIDLink"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="erpsolams.erpsolamsmodel.erpsolamsassoc.SysUsersSysUsersCustomerUserIDAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="erpsolams.erpsolamsmodel.erpsolamslink.SysUsersSysUsersCustomerUserIDLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="SysUsersView"
+    Cardinality="1"
+    Source="true"
+    Owner="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersView">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="SysUsersView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersView.Userid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SysUserCustomerView"
+    Cardinality="-1"
+    Owner="erpsolams.erpsolamsmodel.erpsolamsvo.SysUserCustomerView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SysUserCustomerView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamsvo.SysUserCustomerView.Userid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="erpsolams.erpsolamsmodel.ERPSolAMSModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

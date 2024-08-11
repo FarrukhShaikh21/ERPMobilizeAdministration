@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysUsersDetailView"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <ViewAccessor
+    Name="AccSysProgramView"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysProgramView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSysUsersView"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWYesNoQVO"
+    ViewObjectName="erpsolglob.erpsolglobmodel.erpsolglobqvo.VWYesNoQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccVWUserHLevelQVO"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsqvo.VWUserHLevelQVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccSystemView"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SystemView"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="SystemViewYearClosedVC"
+      FullName="erpsolams.erpsolamsmodel.erpsolamsvo.SystemView.SystemViewYearClosedVC"/>
+  </ViewAccessor>
+  <ListBinding
+    Name="LovModuleid"
+    ListVOName="AccSysProgramView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Moduleid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Levelid"/>
+      <Item Value="Projectid"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Moduleid"/>
+      <Item Value="Levelid"/>
+      <Item Value="Projectid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ModuleName"/>
+      <Item Value="Moduleid"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="SysProgramViewFindVC"/>
+  </ListBinding>
+  <ListBinding
+    Name="LovUserid"
+    ListVOName="AccSysUsersView"
+    ListRangeSize="-1"
+    ComboRowCountHint="10"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Userid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Userid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Userid"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCanadd"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Canadd"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCanedit"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Canedit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovCandelete"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Candelete"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovSubmit"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Submit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovUnsubmit"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Unsubmit"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovHLevel"
+    ListVOName="AccVWUserHLevelQVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HLevel"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="HlevelId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="HHLevelName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovProjectid"
+    ListVOName="AccSystemView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Projectid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Projectid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProjectName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovRestrictAccess"
+    ListVOName="AccVWYesNoQVO"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RestrictAccess"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ID"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="SysUsersDetail"
+    Entity="erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail"/>
+  <ViewAttribute
+    Name="Moduleid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Moduleid"
+    EntityUsage="SysUsersDetail"
+    AliasName="MODULEID"
+    LOVName="LovModuleid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Levelid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Levelid"
+    EntityUsage="SysUsersDetail"
+    AliasName="LEVELID"/>
+  <ViewAttribute
+    Name="Projectid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Projectid"
+    EntityUsage="SysUsersDetail"
+    AliasName="PROJECTID"
+    LOVName="LovProjectid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RestrictAccess"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RestrictAccess"
+    EntityUsage="SysUsersDetail"
+    AliasName="RESTRICT_ACCESS"
+    LOVName="LovRestrictAccess">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Userid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Userid"
+    EntityUsage="SysUsersDetail"
+    AliasName="USERID"
+    LOVName="LovUserid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="SysUsersDetail"
+    AliasName="REMARKS"/>
+  <ViewAttribute
+    Name="Canadd"
+    PrecisionRule="true"
+    EntityAttrName="Canadd"
+    EntityUsage="SysUsersDetail"
+    AliasName="CANADD"
+    LOVName="LovCanadd">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Canedit"
+    PrecisionRule="true"
+    EntityAttrName="Canedit"
+    EntityUsage="SysUsersDetail"
+    AliasName="CANEDIT"
+    LOVName="LovCanedit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Candelete"
+    PrecisionRule="true"
+    EntityAttrName="Candelete"
+    EntityUsage="SysUsersDetail"
+    AliasName="CANDELETE"
+    LOVName="LovCandelete">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HLevel"
+    PrecisionRule="true"
+    EntityAttrName="HLevel"
+    EntityUsage="SysUsersDetail"
+    AliasName="H_LEVEL"
+    LOVName="LovHLevel">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Canview"
+    PrecisionRule="true"
+    EntityAttrName="Canview"
+    EntityUsage="SysUsersDetail"
+    AliasName="CANVIEW"/>
+  <ViewAttribute
+    Name="Modifiedby"
+    PrecisionRule="true"
+    EntityAttrName="Modifiedby"
+    EntityUsage="SysUsersDetail"
+    AliasName="MODIFIEDBY"/>
+  <ViewAttribute
+    Name="ModifiedDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedDate"
+    EntityUsage="SysUsersDetail"
+    AliasName="MODIFIED_DATE"/>
+  <ViewAttribute
+    Name="Createdby"
+    PrecisionRule="true"
+    EntityAttrName="Createdby"
+    EntityUsage="SysUsersDetail"
+    AliasName="CREATEDBY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="SysUsersDetail"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="Submit"
+    PrecisionRule="true"
+    EntityAttrName="Submit"
+    EntityUsage="SysUsersDetail"
+    AliasName="SUBMIT"
+    LOVName="LovSubmit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Unsubmit"
+    PrecisionRule="true"
+    EntityAttrName="Unsubmit"
+    EntityUsage="SysUsersDetail"
+    AliasName="UNSUBMIT"
+    LOVName="LovUnsubmit">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Reprint"
+    PrecisionRule="true"
+    EntityAttrName="Reprint"
+    EntityUsage="SysUsersDetail"
+    AliasName="REPRINT"/>
+  <ViewAttribute
+    Name="Print"
+    PrecisionRule="true"
+    EntityAttrName="Print"
+    EntityUsage="SysUsersDetail"
+    AliasName="PRINT"/>
+  <ViewAttribute
+    Name="ApplicationRa"
+    PrecisionRule="true"
+    EntityAttrName="ApplicationRa"
+    EntityUsage="SysUsersDetail"
+    AliasName="APPLICATION_RA"/>
+  <ViewAttribute
+    Name="SpecialAct"
+    PrecisionRule="true"
+    EntityAttrName="SpecialAct"
+    EntityUsage="SysUsersDetail"
+    AliasName="SPECIAL_ACT"/>
+  <ViewAttribute
+    Name="Approval1"
+    PrecisionRule="true"
+    EntityAttrName="Approval1"
+    EntityUsage="SysUsersDetail"
+    AliasName="APPROVAL_1"/>
+  <ViewAttribute
+    Name="Approval2"
+    PrecisionRule="true"
+    EntityAttrName="Approval2"
+    EntityUsage="SysUsersDetail"
+    AliasName="APPROVAL_2"/>
+  <ViewAttribute
+    Name="txtModuleName"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="txtModuleName"
+    EntityUsage="SysUsersDetail"
+    AliasName="TXT_MODULE_NAME"/>
+</ViewObject>

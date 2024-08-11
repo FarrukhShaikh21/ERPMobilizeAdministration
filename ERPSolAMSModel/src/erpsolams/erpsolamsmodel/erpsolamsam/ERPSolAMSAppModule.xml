@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ERPSolAMSAppModule"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="SysUsersCRUD"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersView"/>
+  <ViewUsage
+    Name="SysUsersDetailCRUD"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersDetailView"/>
+  <ViewUsage
+    Name="SysUsersAutoSuggestRO"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersView"/>
+  <ViewUsage
+    Name="SysProgramAutoSuggestRO"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysProgramView"/>
+  <ViewUsage
+    Name="SysUserCustomerDetCRUD"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUserCustomerView"/>
+  <ViewUsage
+    Name="AllCustomersAutoSuggestRO"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.AllCustomersView"/>
+  <ViewUsage
+    Name="SysUserVoucherTypeDetCRUD"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUserVoucherTypeView"/>
+  <ViewLinkUsage
+    Name="SysUsersSysUsersCustomerUserIDLink1"
+    ViewLinkObjectName="erpsolams.erpsolamsmodel.erpsolamslink.SysUsersSysUsersCustomerUserIDLink"
+    SrcViewUsageName="erpsolams.erpsolamsmodel.erpsolamsam.ERPSolAMSAppModule.SysUsersCRUD"
+    DstViewUsageName="erpsolams.erpsolamsmodel.erpsolamsam.ERPSolAMSAppModule.SysUserCustomerDetCRUD"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="SysUSersSysUserVoucherTypeUserIdLink1"
+    ViewLinkObjectName="erpsolams.erpsolamsmodel.erpsolamslink.SysUSersSysUserVoucherTypeUserIdLink"
+    SrcViewUsageName="erpsolams.erpsolamsmodel.erpsolamsam.ERPSolAMSAppModule.SysUsersCRUD"
+    DstViewUsageName="erpsolams.erpsolamsmodel.erpsolamsam.ERPSolAMSAppModule.SysUserVoucherTypeDetCRUD"
+    Reversed="false"/>
+</AppModule>
