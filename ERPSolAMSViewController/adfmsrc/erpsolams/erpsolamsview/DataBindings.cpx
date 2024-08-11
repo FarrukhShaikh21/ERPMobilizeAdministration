@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="erpsolams.erpsolamsview" ClientType="Generic">
+  <pageMap>
+    <page path="/ERPSolAMSMain.jsf" usageId="erpsolams_erpsolamsview_ERPSolAMSMainPageDef"/>
+    <page path="/SYS_003.jsf" usageId="erpsolams_erpsolamsview_SYS_003PageDef"/>
+    <page path="/WEB-INF/ERPSOLAMSBTF.xml#ERPSOLAMSBTF@ExeWithParaAMSSSetup"
+          usageId="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/ERPSOLAMSBTF.xml#ERPSOLAMSBTF@ExeWithParaAMSSTransaction"
+          usageId="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef1"/>
+    <page path="/WEB-INF/ERPSOLAMSBTF.xml#ERPSOLAMSBTF@ExeWithParaAMSSReports"
+          usageId="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef11"/>
+    <page path="/WEB-INF/ERPSOLAMSBTF.xml#ERPSOLAMSBTF@ExeWithParaAMSSReportDetail"
+          usageId="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef111"/>
+    <page path="/SYS_004.jsf" usageId="erpsolams_erpsolamsview_SYS_004PageDef"/>
+    <page path="/WEB-INF/ERPSOLAMSBTF.xml#ERPSOLAMSBTF@RollbackCloseFormAMS"
+          usageId="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_RollbackPageDef1"/>
+    <page path="/WEB-INF/ERPSOLAMSBTF.xml#ERPSOLAMSBTF@RollbackBeforeFornAMS"
+          usageId="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_RollbackPageDef"/>
+    <page path="/SYS_007.jsf" usageId="erpsolams_erpsolamsview_SYS_007PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="erpsolams_erpsolamsview_ERPSolAMSMainPageDef"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSolAMSMainPageDef"/>
+    <page id="erpsolams_erpsolamsview_SYS_003PageDef" path="erpsolams.erpsolamsview.pageDefs.SYS_003PageDef"/>
+    <page id="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef"/>
+    <page id="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef1"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef1"/>
+    <page id="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef11"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef11"/>
+    <page id="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef111"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSOLAMSBTF_ERPSOLAMSBTF_ExecuteWithParamsPageDef111"/>
+    <page id="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_RollbackPageDef"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSOLAMSBTF_ERPSOLAMSBTF_RollbackPageDef"/>
+    <page id="erpsolams_erpsolamsview_SYS_004PageDef" path="erpsolams.erpsolamsview.pageDefs.SYS_004PageDef"/>
+    <page id="erpsolams_erpsolamsview_ERPSOLAMSBTF_ERPSOLAMSBTF_RollbackPageDef1"
+          path="erpsolams.erpsolamsview.pageDefs.ERPSOLAMSBTF_ERPSOLAMSBTF_RollbackPageDef1"/>
+    <page id="erpsolams_erpsolamsview_SYS_007PageDef" path="erpsolams.erpsolamsview.pageDefs.SYS_007PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ERPSolAMSAppModuleDataControl" Package="erpsolams.erpsolamsmodel.erpsolamsam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolAMSAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="ERPSolTempAppModuleDataControl" Package="erpsoltemp.erpsoltempmodel.erpsoltempam"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ERPSolTempAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

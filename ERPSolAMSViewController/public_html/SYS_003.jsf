@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="SYS_003.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/ERPSolutionTemplate.jsf" value="#{bindings.ptb1}" id="pt1">
+                <f:facet name="erptempmain">
+                    <af:panelHeader text="User Information" id="ph1">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t3">
+                                <af:button text="Exit" id="b5" icon="#{resource['images:imgExitForm.png']}"
+                                           iconPosition="top" action="ACT-ERPSOL-EXIT-FORM"/>
+                            </af:toolbar>
+                        </f:facet>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:spacer width="10" height="15" id="s1"/>
+                        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                            <f:facet name="menus"/>
+                            <f:facet name="toolbar">
+                                <af:toolbar id="t2">
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add New"
+                                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowAdd=='N'}" id="b3"
+                                               icon="#{resource['images:imgAdd.png']}"/>
+                                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                               disabled="#{pageFlowScope.ERPSolTempBean.LERPSolAllowDelete=='N'}" id="b4"
+                                               icon="#{resource['images:imgDelete.png']}"/>
+                                    <af:button actionListener="#{bindings.Commit.execute}" text="Save" id="b1"
+                                               icon="#{resource['images:imgSave.png']}"/>
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Undo" immediate="true" id="b2"
+                                               icon="#{resource['images:imgUndo.png']}">
+                                        <af:resetActionListener/>
+                                    </af:button>
+                                </af:toolbar>
+                            </f:facet>
+                            <f:facet name="statusbar"/>
+                            <af:table value="#{bindings.SysUsersCRUD.collectionModel}" var="row"
+                                      rows="#{bindings.SysUsersCRUD.rangeSize}"
+                                      emptyText="#{bindings.SysUsersCRUD.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.SysUsersCRUD.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.SysUsersCRUD.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.SysUsersCRUD.rangeSize}"
+                                      filterModel="#{bindings.SysUsersCRUDQuery.queryDescriptor}"
+                                      queryListener="#{bindings.SysUsersCRUDQuery.processQuery}" filterVisible="true"
+                                      varStatus="vs" id="t1" styleClass="AFStretchWidth" partialTriggers="::b3 ::b4">
+                                <af:column sortProperty="#{bindings.SysUsersCRUD.hints.Companyid.name}"
+                                           filterable="true" headerText="#{bindings.SysUsersCRUD.hints.Companyid.label}"
+                                           id="c1" width="150">
+                                    <af:selectOneChoice value="#{row.bindings.Companyid.inputValue}"
+                                                        label="#{row.bindings.Companyid.label}"
+                                                        required="#{bindings.SysUsersCRUD.hints.Companyid.mandatory}"
+                                                        shortDesc="#{bindings.SysUsersCRUD.hints.Companyid.tooltip}"
+                                                        id="soc1">
+                                        <f:selectItems value="#{row.bindings.Companyid.items}" id="si1"/>
+                                        <f:validator binding="#{row.bindings.Companyid.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SysUsersCRUD.hints.FullName.name}" filterable="true"
+                                           headerText="#{bindings.SysUsersCRUD.hints.FullName.label}" id="c2"
+                                           width="200">
+                                    <af:inputText value="#{row.bindings.FullName.inputValue}"
+                                                  label="#{bindings.SysUsersCRUD.hints.FullName.label}"
+                                                  required="#{bindings.SysUsersCRUD.hints.FullName.mandatory}"
+                                                  columns="#{bindings.SysUsersCRUD.hints.FullName.displayWidth}"
+                                                  maximumLength="#{bindings.SysUsersCRUD.hints.FullName.precision}"
+                                                  shortDesc="#{bindings.SysUsersCRUD.hints.FullName.tooltip}" id="it1">
+                                        <f:validator binding="#{row.bindings.FullName.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SysUsersCRUD.hints.Userid.name}" filterable="true"
+                                           headerText="#{bindings.SysUsersCRUD.hints.Userid.label}" id="c3" width="150">
+                                    <af:inputText value="#{row.bindings.Userid.inputValue}"
+                                                  label="#{bindings.SysUsersCRUD.hints.Userid.label}"
+                                                  required="#{bindings.SysUsersCRUD.hints.Userid.mandatory}"
+                                                  columns="#{bindings.SysUsersCRUD.hints.Userid.displayWidth}"
+                                                  maximumLength="#{bindings.SysUsersCRUD.hints.Userid.precision}"
+                                                  shortDesc="#{bindings.SysUsersCRUD.hints.Userid.tooltip}" id="it2">
+                                        <f:validator binding="#{row.bindings.Userid.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SysUsersCRUD.hints.Password.name}" filterable="true"
+                                           headerText="#{bindings.SysUsersCRUD.hints.Password.label}" id="c4">
+                                    <af:inputText value="#{row.bindings.Password.inputValue}"
+                                                  label="#{bindings.SysUsersCRUD.hints.Password.label}"
+                                                  required="#{bindings.SysUsersCRUD.hints.Password.mandatory}"
+                                                  columns="#{bindings.SysUsersCRUD.hints.Password.displayWidth}"
+                                                  maximumLength="#{bindings.SysUsersCRUD.hints.Password.precision}"
+                                                  shortDesc="#{bindings.SysUsersCRUD.hints.Password.tooltip}" id="it3"
+                                                  secret="true">
+                                        <f:validator binding="#{row.bindings.Password.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.SysUsersCRUD.hints.Locationid.label}" id="c6"
+                                           width="200">
+                                    <af:selectOneChoice value="#{row.bindings.Locationid.inputValue}"
+                                                        label="#{row.bindings.Locationid.label}"
+                                                        required="#{bindings.SysUsersCRUD.hints.Locationid.mandatory}"
+                                                        shortDesc="#{bindings.SysUsersCRUD.hints.Locationid.tooltip}"
+                                                        id="soc3">
+                                        <f:selectItems value="#{row.bindings.Locationid.items}" id="si3"/>
+                                        <f:validator binding="#{row.bindings.Locationid.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column headerText="#{bindings.SysUsersCRUD.hints.Storeid.label}" id="c5"
+                                           width="200">
+                                    <af:selectOneChoice value="#{row.bindings.Storeid.inputValue}"
+                                                        label="#{row.bindings.Storeid.label}"
+                                                        required="#{bindings.SysUsersCRUD.hints.Storeid.mandatory}"
+                                                        shortDesc="#{bindings.SysUsersCRUD.hints.Storeid.tooltip}"
+                                                        id="soc2">
+                                        <f:selectItems value="#{row.bindings.Storeid.items}" id="si2"/>
+                                        <f:validator binding="#{row.bindings.Storeid.validator}"/>
+                                    </af:selectOneChoice>
+                                </af:column>
+                                <af:column sortProperty="#{bindings.SysUsersCRUD.hints.Empid.name}" filterable="true"
+                                           headerText="#{bindings.SysUsersCRUD.hints.Empid.label}" id="c7">
+                                    <af:inputText value="#{row.bindings.Empid.inputValue}"
+                                                  label="#{bindings.SysUsersCRUD.hints.Empid.label}"
+                                                  required="#{bindings.SysUsersCRUD.hints.Empid.mandatory}"
+                                                  columns="#{bindings.SysUsersCRUD.hints.Empid.displayWidth}"
+                                                  maximumLength="#{bindings.SysUsersCRUD.hints.Empid.precision}"
+                                                  shortDesc="#{bindings.SysUsersCRUD.hints.Empid.tooltip}" id="it6">
+                                        <f:validator binding="#{row.bindings.Empid.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                        </af:panelCollection>
+                    </af:panelHeader>
+                </f:facet>
+                <f:facet name="erptempleft"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>

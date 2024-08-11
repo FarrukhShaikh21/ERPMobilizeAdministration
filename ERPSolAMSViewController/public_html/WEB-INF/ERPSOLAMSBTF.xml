@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ERPSOLAMSBTF">
+    <default-activity>doERPSolAMSSessionGlobals</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__19">
+      <name>P_ADF_USERCODE</name>
+      <value>#{pageFlowScope.ERPSolAMSPageFlowBean.ERPSolStrUserCode}</value>
+      <class>erpsolams.erpsolamsview.erpsolamsclass.ERPSolAMSBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__20">
+      <name>P_ADF_USER_LOCATIONCODE</name>
+      <value>#{pageFlowScope.ERPSolAMSPageFlowBean.ERPSolStrUserLocationCode}</value>
+      <class>erpsolams.erpsolamsview.erpsolamsclass.ERPSolAMSBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__21">
+      <name>P_ADF_USER_STORECODE</name>
+      <value>#{pageFlowScope.ERPSolAMSPageFlowBean.ERPSolStrUserStoreCode}</value>
+      <class>erpsolams.erpsolamsview.erpsolamsclass.ERPSolAMSBean</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__22">
+      <name>P_ADF_USER_REGIONCODE</name>
+      <value>#{pageFlowScope.ERPSolAMSPageFlowBean.ERPSolStrUserRegionCode}</value>
+      <class>erpsolams.erpsolamsview.erpsolamsclass.ERPSolAMSBean</class>
+    </input-parameter-definition>
+    <managed-bean id="__1">
+      <managed-bean-name>ERPSolAMSPageFlowBean</managed-bean-name>
+      <managed-bean-class>erpsolams.erpsolamsview.erpsolamsclass.ERPSolAMSBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__18">
+      <managed-bean-name>ERPSolTempBean</managed-bean-name>
+      <managed-bean-class>erpsoltemp.erpsoltempview.erptempclass.ERPSolutionTemplateBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <task-flow-return id="RETURN-FROM-AMS">
+      <outcome>
+        <name>RETURN-FROM-AMS</name>
+      </outcome>
+    </task-flow-return>
+    <view id="ERPSolAMSMain">
+      <page>/ERPSolAMSMain.jsf</page>
+    </view>
+    <method-call id="doERPSolAMSSessionGlobals">
+      <method>#{pageFlowScope.ERPSolAMSPageFlowBean.doSetERPSolAMSSessionGlobals}</method>
+      <outcome>
+        <fixed-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeWithParaAMSSSetup">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeWithParaAMSSTransaction">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeWithParaAMSSReports">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ExeWithParaAMSSReportDetail">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="ACT-ERP-SOL-LOGOUT">
+      <outcome>
+        <name>ACT-ERP-SOL-LOGOUT</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="doERPGotoAMSActivity">
+      <method>#{pageFlowScope.ERPSolTempBean.doGotoERPSolActivity}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="SYS_003">
+      <page>/SYS_003.jsf</page>
+    </view>
+    <method-call id="RollbackBeforeFornAMS">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACTStartERPSolutionTaskFlow</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SYS_004">
+      <page>/SYS_004.jsf</page>
+    </view>
+    <method-call id="RollbackCloseFormAMS">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>ACT-ERPSOL-EXIT-FORM</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="SYS_007">
+      <page>/SYS_007.jsf</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id>doERPSolAMSSessionGlobals</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</from-outcome>
+        <to-activity-id>ExeWithParaAMSSSetup</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>ExeWithParaAMSSSetup</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</from-outcome>
+        <to-activity-id>ExeWithParaAMSSTransaction</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>ExeWithParaAMSSTransaction</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</from-outcome>
+        <to-activity-id>ExeWithParaAMSSReports</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>ExeWithParaAMSSReports</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</from-outcome>
+        <to-activity-id>ExeWithParaAMSSReportDetail</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>ExeWithParaAMSSReportDetail</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ERP-SOL-ACT-GOTO-AMS-MAIN</from-outcome>
+        <to-activity-id>ERPSolAMSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>RollbackBeforeFornAMS</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__24">
+        <from-outcome>ERPSOL-RETURN-FROM-AMS</from-outcome>
+        <to-activity-id>RETURN-FROM-AMS</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome>ACT-ERP-SOL-LOGOUT</from-outcome>
+        <to-activity-id>ACT-ERP-SOL-LOGOUT</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>doERPGotoAMSActivity</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome>ERP-ACT-SYS-003</from-outcome>
+        <to-activity-id>SYS_003</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome>ERP-ACT-SYS-004</from-outcome>
+        <to-activity-id>SYS_004</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome>ERP-ACT-SYS-007</from-outcome>
+        <to-activity-id>SYS_007</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id>RollbackBeforeFornAMS</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>ACTStartERPSolutionTaskFlow</from-outcome>
+        <to-activity-id>doERPGotoAMSActivity</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome>ACT-ERPSOL-EXIT-FORM</from-outcome>
+        <to-activity-id>RollbackCloseFormAMS</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id>RollbackCloseFormAMS</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome>ACT-ERPSOL-EXIT-FORM</from-outcome>
+        <to-activity-id>ERPSolAMSMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <visibility>
+      <url-invoke-allowed/>
+    </visibility>
+  </task-flow-definition>
+</adfc-config>

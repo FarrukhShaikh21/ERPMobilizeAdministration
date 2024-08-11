@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SYS_004PageDef"
+                Package="erpsolams.erpsolamsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SysUsersDetailCRUD" RangeSize="25" DataControl="ERPSolAMSAppModuleDataControl"
+              id="SysUsersDetailCRUDIterator">
+      <sortCriteria>
+        <sort attribute="Userid" ascending="true"/>
+        <sort attribute="Projectid" ascending="true"/>
+        <sort attribute="Moduleid" ascending="true"/>
+      </sortCriteria>
+    </iterator>
+    <searchRegion Binds="SysUsersDetailCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysUsersDetailCRUDQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SysUsersDetailCRUDIterator" id="SysUsersDetailCRUD">
+      <nodeDefinition DefName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersDetailView" Name="SysUsersDetailCRUD0">
+        <AttrNames>
+          <Item Value="Userid"/>
+          <Item Value="Moduleid"/>
+          <Item Value="txtModuleName"/>
+          <Item Value="HLevel"/>
+          <Item Value="Levelid"/>
+          <Item Value="Projectid"/>
+          <Item Value="RestrictAccess"/>
+          <Item Value="Canadd"/>
+          <Item Value="Canedit"/>
+          <Item Value="Candelete"/>
+          <Item Value="Submit"/>
+          <Item Value="Unsubmit"/>
+          <Item Value="Print"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysUsersDetailCRUDIterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SysUsersDetailCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolAMSAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolAMSAppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

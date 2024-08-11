@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="SYS_007PageDef"
+                Package="erpsolams.erpsolamsview.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="erpsoltemp.erpsoltempview.pageDefs.ERPSolutionTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="SysUsersCRUD" RangeSize="25" DataControl="ERPSolAMSAppModuleDataControl"
+              id="SysUsersCRUDIterator"/>
+    <searchRegion Binds="SysUsersCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysUsersCRUDQuery"/>
+    <iterator Binds="SysUserCustomerDetCRUD" RangeSize="25" DataControl="ERPSolAMSAppModuleDataControl"
+              id="SysUserCustomerDetCRUDIterator"/>
+    <searchRegion Binds="SysUserCustomerDetCRUDIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="SysUserCustomerDetCRUDQuery"/>
+    <iterator Binds="SysUserVoucherTypeDetCRUD" RangeSize="25" DataControl="ERPSolAMSAppModuleDataControl"
+              id="SysUserVoucherTypeDetCRUDIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SysUsersCRUDIterator" id="SysUsersCRUD">
+      <nodeDefinition DefName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUsersView" Name="SysUsersCRUD0">
+        <AttrNames>
+          <Item Value="Companyid"/>
+          <Item Value="Userid"/>
+          <Item Value="FullName"/>
+          <Item Value="Locationid"/>
+          <Item Value="Storeid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="SysUserCustomerDetCRUDIterator" id="SysUserCustomerDetCRUD">
+      <nodeDefinition DefName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUserCustomerView" Name="SysUserCustomerDetCRUD0">
+        <AttrNames>
+          <Item Value="Customerid"/>
+          <Item Value="txtCustomerName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysUserCustomerDetCRUDIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"
+            InstanceName="ERPSolAMSAppModuleDataControl.SysUserCustomerDetCRUD"
+            DataControl="ERPSolAMSAppModuleDataControl"/>
+    <action IterBinding="SysUserCustomerDetCRUDIterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"
+            InstanceName="ERPSolAMSAppModuleDataControl.SysUserCustomerDetCRUD"
+            DataControl="ERPSolAMSAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="ERPSolAMSAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="ERPSolAMSAppModuleDataControl"/>
+    <attributeValues IterBinding="SysUsersCRUDIterator" id="Userid">
+      <AttrNames>
+        <Item Value="Userid"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="SysUserVoucherTypeDetCRUDIterator" id="SysUserVoucherTypeDetCRUD">
+      <nodeDefinition DefName="erpsolams.erpsolamsmodel.erpsolamsvo.SysUserVoucherTypeView"
+                      Name="SysUserVoucherTypeDetCRUD0">
+        <AttrNames>
+          <Item Value="VoucherTypeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SysUserVoucherTypeDetCRUDIterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="SysUserVoucherTypeDetCRUDIterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>
