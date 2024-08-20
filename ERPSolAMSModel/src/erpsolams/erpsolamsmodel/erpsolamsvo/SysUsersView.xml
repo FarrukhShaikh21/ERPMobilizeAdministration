@@ -25,6 +25,10 @@
     Name="AccAllStoresView"
     ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.AllStoresView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AccAllRegionVO"
+    ViewObjectName="erpsolams.erpsolamsmodel.erpsolamsvo.AllRegionVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LovCompanyid"
     ListVOName="AccAllCompanyView"
@@ -79,6 +83,25 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="StoreName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LovRegionid"
+    ListVOName="AccAllRegionVO"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Regionid"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Regionid"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descript"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -189,7 +212,15 @@
     PrecisionRule="true"
     EntityAttrName="Regionid"
     EntityUsage="SysUsers"
-    AliasName="REGIONID"/>
+    AliasName="REGIONID"
+    LOVName="LovRegionid">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PAllow"
     PrecisionRule="true"

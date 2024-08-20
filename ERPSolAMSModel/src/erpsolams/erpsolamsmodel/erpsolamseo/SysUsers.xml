@@ -218,8 +218,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SYS_USERS"
-    DefaultValue="SB">
+    TableName="SYS_USERS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
