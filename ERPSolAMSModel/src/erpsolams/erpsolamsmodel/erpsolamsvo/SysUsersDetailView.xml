@@ -467,4 +467,11 @@
     EntityAttrName="txtModuleName"
     EntityUsage="SysUsersDetail"
     AliasName="TXT_MODULE_NAME"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="SysUsersDetail"
+    AliasName="ROWID"/>
 </ViewObject>

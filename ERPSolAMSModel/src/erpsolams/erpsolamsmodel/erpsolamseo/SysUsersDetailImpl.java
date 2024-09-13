@@ -5,6 +5,7 @@ import erpsolglob.erpsolglobmodel.erpsolglobclasses.ERPSolGlobalsEntityImpl;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.domain.Date;
+import oracle.jbo.domain.RowID;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.TransactionEvent;
@@ -43,6 +44,7 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
         Approval1,
         Approval2,
         txtModuleName,
+        RowID,
         SysProgram,
         SysUsers;
         private static AttributesEnum[] vals = null;
@@ -67,6 +69,8 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
             return vals;
         }
     }
+
+
     public static final int MODULEID = AttributesEnum.Moduleid.index();
     public static final int LEVELID = AttributesEnum.Levelid.index();
     public static final int PROJECTID = AttributesEnum.Projectid.index();
@@ -91,6 +95,7 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
     public static final int APPROVAL1 = AttributesEnum.Approval1.index();
     public static final int APPROVAL2 = AttributesEnum.Approval2.index();
     public static final int TXTMODULENAME = AttributesEnum.txtModuleName.index();
+    public static final int ROWID = AttributesEnum.RowID.index();
     public static final int SYSPROGRAM = AttributesEnum.SysProgram.index();
     public static final int SYSUSERS = AttributesEnum.SysUsers.index();
 
@@ -99,6 +104,14 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
      */
     public SysUsersDetailImpl() {
     }
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        return EntityDefImpl.findDefObject("erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail");
+    }
+
 
     /**
      * Gets the attribute value for Moduleid, using the alias name Moduleid.
@@ -485,6 +498,14 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
     }
 
     /**
+     * Gets the attribute value for RowID, using the alias name RowID.
+     * @return the value of RowID
+     */
+    public RowID getRowID() {
+        return (RowID) getAttributeInternal(ROWID);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.server.EntityImpl.
      */
     public EntityImpl getSysProgram() {
@@ -512,6 +533,7 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
         setAttributeInternal(SYSUSERS, value);
     }
 
+
     /**
      * @param moduleid key constituent
      * @param levelid key constituent
@@ -522,13 +544,6 @@ public class SysUsersDetailImpl extends ERPSolGlobalsEntityImpl {
      */
     public static Key createPrimaryKey(String moduleid, String levelid, String projectid, String userid) {
         return new Key(new Object[] { moduleid, levelid, projectid, userid });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        return EntityDefImpl.findDefObject("erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail");
     }
 
     /**

@@ -23,8 +23,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SYS_USERS_DETAIL"
-    PrimaryKey="true">
+    TableName="SYS_USERS_DETAIL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -44,8 +43,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SYS_USERS_DETAIL"
-    PrimaryKey="true">
+    TableName="SYS_USERS_DETAIL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="15"/>
     </DesignTime>
@@ -65,8 +63,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SYS_USERS_DETAIL"
-    PrimaryKey="true">
+    TableName="SYS_USERS_DETAIL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
@@ -109,8 +106,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="SYS_USERS_DETAIL"
-    PrimaryKey="true">
+    TableName="SYS_USERS_DETAIL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
@@ -408,6 +404,15 @@
         Value="Moduleid"/>
     </Dependencies>
   </Attribute>
+  <Attribute
+    Name="RowID"
+    IsUpdateable="false"
+    ColumnName="ROWID"
+    SQLType="ROWID"
+    Type="oracle.jbo.domain.RowID"
+    ColumnType="ROWID"
+    TableName="SYS_USERS_DETAIL"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="SysProgram"
     Association="erpsolams.erpsolamsmodel.erpsolamseo.RSud370Assoc"
@@ -429,10 +434,7 @@
       <Attr Name="_DBObjectName" Value="XPKSYS_USERS_DETAIL"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail.Moduleid"/>
-      <Item Value="erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail.Levelid"/>
-      <Item Value="erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail.Projectid"/>
-      <Item Value="erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail.Userid"/>
+      <Item Value="erpsolams.erpsolamsmodel.erpsolamseo.SysUsersDetail.RowID"/>
     </AttrArray>
   </Key>
   <Key
